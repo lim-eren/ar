@@ -96,21 +96,11 @@ h1 {
   display: none;
 }
 
-.btn_rotate{
-  width:30px;
-  height: 30px;
-  background:url('../assets/rotate.png');
- -moz-background-size:100% 100%;
-  -webkit-background-size:100% 100%;
-  background-size:100% 100%;
-  position: absolute;
-  top:0;
-  right:0;
-  display: none;
-}
 .btn-image{
     background:url(../assets/shoot.png) no-repeat;
     background-size: 80px 80px;
+    -moz-background-size:80px 80px;
+    -webkit-background-size:80px 80px;
     cursor:pointer;
     border:none;
     width:80px;
@@ -118,11 +108,13 @@ h1 {
 }
 .btn-rotate{
     background:url(../assets/rotate_cam.png) no-repeat;
-    background-size: 50px 50px;
+    background-size: 40px 40px;
+    -moz-background-size:40px 40px;
+    -webkit-background-size:40px 40px;
     cursor:pointer;
     border:none;
-    width:50px;
-    height:50px;
+    width:40px;
+    height:40px;
 }
 .mask_container{
   width:100%;

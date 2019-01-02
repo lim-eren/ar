@@ -304,8 +304,8 @@
                         videoDevices[videoDeviceIndex++] =  device.deviceId;    
                       }
                   });
-
-                  if(0 in videoDevices){
+                  window.xx = videoDevices;
+                  if($.inArray(0, videoDevices)==1){
                     alert("Only single device is available!");
                     is_front = false;
                   }
