@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Hello!</title>
+    <title>Camera AR</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
@@ -20,13 +20,12 @@
     
     <!-- interactive drag and resize -->
     <!-- <script src="js/interact.min.js"></script> -->
+    <script src="js/FileSaver.js"></script>
   
     <script src="js/html2canvas.js"></script>
   </head>  
-  
   <body>
-    <div>
-
+    <div >
         <a-scene arjs="sourceType: webcam; debugUIEnabled: false;" screenshot="width: 640; height: 320" vr-mode-ui="enabled: false" class="ascene">
             <a-entity camera="active: true" position="0 0 0" data-aframe-default-camera id="camera"></a-entity>
         </a-scene>
@@ -41,7 +40,7 @@
           <button class="btn btn-info btn-save" id="save"><i class="fa fa-save"></i> Save</button>
         </div>
 
-        <div class="wrapper" data-html2canvas-ignore>
+        <div class="capture-btn" data-html2canvas-ignore>
           <button class="btn btn-lg btn-danger center" onclick="capture(event);"> 
                 <i class="fa fa-camera"></i> Capture
           </button>
@@ -52,12 +51,11 @@
                 <i class="fa fa-refresh"></i>
           </button>
         </div>
-
         <canvas id="mycanvas" style="display: none;"></canvas>
+    </div>
 
-      </div>
     <script>
-      
+        
         var dataURL = '';
 
         /*$("#resize_drag").mouseover(function(){
@@ -91,12 +89,12 @@
               var mycanvas= $(doc).find('#mycanvas')[0];
               //window.c = mycanvas;
               mycanvas.setAttribute("style", "display:block;z-index:32;width:100%;height:100%;");
-              //console.log(doc);
 
             }}).then(function(canvas) {
                 dataURL = canvas.toDataURL("image/png");
 
                 // set image to display on the modal
+                //console.log(dataURL);
                 var image = document.getElementById('myImg');
                 image.setAttribute('src', dataURL);
                 //image.setAttribute("width", frame.width);
@@ -114,16 +112,14 @@
             });
 
             // remove created video tags
-            $('video:not(first-child)').remove();
+            $('video:not(first-child)').slice(1).remove();
         }
 
 
         //save the screenshot
         document.getElementById("save").addEventListener("click", function(e){
-          var a  = document.createElement('a');
-          a.href = dataURL;
-          a.download = 'screenshot-' + document.title.toLowerCase() + '-' + Date.now() + '.png';
-          a.click();
+          var filename = 'screenshot-' + document.title.toLowerCase() + '-' + Date.now() + '.png';
+          saveAs(dataURL, filename);
         });
 
         document.body.addEventListener('touchmove', function(event) {
@@ -224,7 +220,7 @@
           target.setAttribute('data-x', x);
           target.setAttribute('data-y', y);
         }
-        window.dragMoveListener = dragMoveListener;
+        //window.dragMoveListener = dragMoveListener;
       
         /*
         // resize and drag mask
@@ -298,7 +294,7 @@
         });*/
 
 
-        var is_front = false;
+        /*var is_front = false;
         function switch_camera(event){
           is_front = ! is_front;
           var video = document.querySelector('video');
@@ -334,7 +330,7 @@
                   //console.log('lll');
                 });
 
-        }
+        }*/
         /*
         // Switch camera
         var videoElement = document.querySelector('video');
