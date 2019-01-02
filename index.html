@@ -37,19 +37,16 @@
         <div id="myModal" class="modal" data-html2canvas-ignore>
           <span class="close">&times;</span>
           <img id="myImg" class="modal-content" />
-          <button class="btn btn-info btn-save" id="save"><i class="fa fa-save"></i> Save</button>
+          <a class="btn btn-info btn-save" id="save"><i class="fa fa-save"></i> Save</a>
         </div>
 
         <div class="capture-btn" data-html2canvas-ignore>
-          <button class="btn btn-lg btn-danger center" onclick="capture(event);"> 
-                <i class="fa fa-camera"></i> Capture
-          </button>
+          <span class="btn-image center" onclick="capture(event);"></span>
         </div>
 
         <div class="switch_btn" data-html2canvas-ignore>
-          <button class="btn btn-lg btn-info center" onclick="switch_camera(event);"> 
-                <i class="fa fa-refresh"></i>
-          </button>
+          <span class="btn-rotate center" onclick="switch_camera(event);"> 
+          </span>
         </div>
         <canvas id="mycanvas" style="display: none;"></canvas>
     </div>
@@ -198,7 +195,6 @@
             video = document.querySelector(video);
 
             var canvas = document.getElementById('mycanvas');
-            //canvas.setAttribute("id","mycanvas");
             canvas.width = video.videoWidth;
             canvas.height = video.videoHeight;
             canvas.getContext('2d').drawImage(video, 0, 0, video.videoWidth, video.videoHeight);
@@ -294,7 +290,8 @@
         });*/
 
 
-        /*var is_front = false;
+        // toggle camera back/front if available
+        var is_front = false;
         function switch_camera(event){
           is_front = ! is_front;
           var video = document.querySelector('video');
@@ -308,17 +305,20 @@
                       }
                   });
 
+                  if(0 in videoDevices){
+                    alert("Only single device is available!");
+                    is_front = false;
+                  }
+
                   var constraints =  {//width: { min: 1024, ideal: 1280, max: 1920 },
                   //height: { min: 776, ideal: 720, max: 1080 },
-                                    deviceId: { exact: is_front?videoDevices[1]:videoDevices[0]} 
+                                    deviceId: { exact: is_front?videoDevices[1]:videoDevices[0] } 
                   };
+
                 return navigator.mediaDevices.getUserMedia({ video: constraints });
 
               }).then(stream => {
-                  if (window.webkitURL) {
-                    video.src = window.webkitURL.createObjectURL(stream);
-                    localMediaStream = stream;
-                  } else if (video.mozSrcObject !== undefined) {
+                  if (video.mozSrcObject !== undefined) {
                     video.mozSrcObject = stream;
                   } else if (video.srcObject !== undefined) {
                     video.srcObject = stream;
@@ -330,7 +330,7 @@
                   //console.log('lll');
                 });
 
-        }*/
+        }
         /*
         // Switch camera
         var videoElement = document.querySelector('video');
