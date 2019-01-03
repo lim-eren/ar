@@ -83,38 +83,26 @@ h1 {
   -webkit-background-size:100% 100%;
   background-size:100% 100%;
 }
-.btn_scale{
-  width:30px;
-  height: 30px;
-  background:url('../assets/scale.png');
- -moz-background-size:100% 100%;
-  -webkit-background-size:100% 100%;
-  background-size:100% 100%;
-  position: absolute;
-  top:0;
-  left:0;
-  display: none;
-}
 
 .btn-image{
-    background:url(../assets/shoot.png) no-repeat;
-    background-size: 80px 80px;
-    -moz-background-size:80px 80px;
-    -webkit-background-size:80px 80px;
-    cursor:pointer;
-    border:none;
-    width:80px;
-    height:80px;
+  background:url(../assets/shoot.png) no-repeat;
+  background-size: 80px 80px;
+  -moz-background-size:80px 80px;
+  -webkit-background-size:80px 80px;
+  cursor:pointer;
+  border:none;
+  width:80px;
+  height:80px;
 }
 .btn-rotate{
-    background:url(../assets/rotate_cam.png) no-repeat;
-    background-size: 40px 40px;
-    -moz-background-size:40px 40px;
-    -webkit-background-size:40px 40px;
-    cursor:pointer;
-    border:none;
-    width:40px;
-    height:40px;
+  background:url(../assets/rotate_cam.png) no-repeat;
+  background-size: 40px 40px;
+  -moz-background-size:40px 40px;
+  -webkit-background-size:40px 40px;
+  cursor:pointer;
+  border:none;
+  width:40px;
+  height:40px;
 }
 .mask_container{
   width:100%;
@@ -124,17 +112,7 @@ h1 {
   left:0;
   z-index:30;
 }
-.camera_image{
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  top:0;
-  left: 0;
-  z-index: -1;
-}
-.ascene{
-  z-index: -1;
-}
+
 #mycanvas{
   margin: 0;
 }
